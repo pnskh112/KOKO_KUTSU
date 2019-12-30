@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @box.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @box.user_id %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @box.admin_id %>
+</p>
+
+<p>
+  <strong>Max vertical:</strong>
+  <%= @box.max_vertical %>
+</p>
+
+<p>
+  <strong>Max side:</strong>
+  <%= @box.max_side %>
+</p>
+
+<%= link_to 'Edit', edit_box_path(@box) %> |
+<%= link_to 'Back', boxes_path %>
