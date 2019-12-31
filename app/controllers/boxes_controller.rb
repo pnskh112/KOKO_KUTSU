@@ -12,8 +12,8 @@ class BoxesController < ApplicationController
 
   # GET /boxes/1
   # GET /boxes/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /boxes/new
   def new
@@ -28,17 +28,16 @@ class BoxesController < ApplicationController
   # POST /boxes.json
   def create
     @box = Box.new(box_params)
-
     respond_to do |format|
       if @box.save
-        format.html { redirect_to @box, notice: 'Box was successfully created.' }
-        format.json { render :show, status: :created, location: @box }
+        format.html { redirect_to root_path, notice: 'Box was successfully created.' }
+        format.json { render :index, status: :created, location: @box }
       else
-        format.html { render :new }
+        format.html { render :new, notice: '登録できてません' }
         format.json { render json: @box.errors, status: :unprocessable_entity }
       end
     end
-  end
+end
 
   # PATCH/PUT /boxes/1
   # PATCH/PUT /boxes/1.json
@@ -72,6 +71,6 @@ class BoxesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:name, :user_id, :admin_id, :max_vertical, :max_side)
+      params.require(:box).permit(:name,:admin_id, :max_vertical, :max_side)
     end
 end

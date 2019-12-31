@@ -1,4 +1,5 @@
 class Box < ApplicationRecord
   belongs_to :admin
-  has_many :users, through: :box_users
+  # belongs_to :user
+  has_many :box_users
 end
