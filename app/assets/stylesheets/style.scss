@@ -53,6 +53,9 @@ html, body {
   /* text-shadow: 0px 0px 2px #000; */
   line-height: 1.9;
 }
+.box:target {
+  background-color:yellow;
+}
 
 .box:hover {
   background-color: pink;

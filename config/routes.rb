@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
@@ -7,6 +8,13 @@ Rails.application.routes.draw do
   root to: "boxes#new"
   resources :boxes, except:[:update,:destroy]
 
+  resources :signup do
+    collection do
+      get 'step1'
+      get 'step2'
+      get 'done'
+    end
+  end
 
   devise_for :admins, controllers: {
     sessions:      'admins/sessions',
@@ -14,13 +22,6 @@ Rails.application.routes.draw do
     registrations: 'admins/registrations'
   }
 
-  # resources :signup do
-  #   collection do
-  #     get 'step1'
-  #     get 'step2'
-  #     get 'done'
-  #   end
-  # end
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
