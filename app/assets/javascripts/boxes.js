@@ -1,7 +1,6 @@
 $(function(){
   $("#go").click(
   function(){
-    console.log('俺こそが天才だどいつもこいつも全員死にやがれ');
     panel = document.getElementById('panel');
     panel.style.width = '400px';
     panel.style.height = '600px';
