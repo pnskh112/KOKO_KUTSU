@@ -1,17 +1,41 @@
 $(function(){
-  // $("#go").on('click',function(e){
+  // $(setTimeout(function(){
+  $("#go").on('click',function(e){
+    e.preventDefault();
+    console.log(this);
   // $("").on('click',function(e){
-  //     e.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/shoes',
+      // data: {
+      //   todo: {
+      //     content: todo
+      //   }
+      // },
+      // data: {id: 1},
+      dataType: 'json'
+    })
+    .done(function(e){
+      var tate = 4;
+      var yoko = 6;
+      // console.log(box.max_vertical);
       panel = document.getElementById('panel');
-      panel.style.width = '400px';
-      panel.style.height = '600px';
-      for (var i=0;i<24;i++){
+      panel.style.width = (tate * 100) + "px";
+      // panel.style.width = boxesテーブル から取得したテーブルの よこ 幅分 × 100;
+      panel.style.height = (yoko * 100) + "px";
+      // panel.style.height = boxesテーブル から取得したテーブルの たて 幅分 × 100;
+      for (var i=0;i<(tate * yoko);i++){
+      // for (var i=0; i< たて×よこ ;i++){
         var div = document.createElement('div');
         div.className = "box empty";
         div.id = "box empty " + i;
         document.getElementById('panel').appendChild(div);
       }
-    // }
+    // })
+    // .fail(function(){
+    //   alert('error');
+    });
+      // }
   // )
   $('#on').on('click',function(){
   console.log("靴の場所を登録");
@@ -57,6 +81,7 @@ $(function(){
   });
 
 });
+// },1000));
 
 
-
+});

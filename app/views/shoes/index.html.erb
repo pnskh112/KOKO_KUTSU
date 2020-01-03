@@ -1,8 +1,11 @@
 
-<div class=container>
 <div class="cursor"></div>
 <div class="cursor"><img src="https://www.evoworx.co.jp/wp2/wp-content/themes/evoworx2017/common/image/dog_red.png" alt=""></div>
-
+<% @box.each do |box| %>
+    <div class="aaa">
+        <%= box.max_vertical %>
+    </div>
+<% end %>
 <input type="text" id="input input-height" placeholder="上から何段目?">
 <input type="text" id="input input-width" placeholder="左から何列目?">
 <button id="go" class="btn btn-lg btn-primary">GO</button>

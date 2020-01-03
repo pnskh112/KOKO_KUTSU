@@ -4,8 +4,8 @@ class BoxesController < ApplicationController
   # GET /boxes
   # GET /boxes.json
   def index
-    Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
-    Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
+    # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
+    # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
 
     @boxes = Box.all
   end
@@ -44,11 +44,12 @@ end
   def update
     respond_to do |format|
       if @box.update(box_params)
-        format.html { redirect_to @box, notice: 'Box was successfully updated.' }
-        format.json { render :show, status: :ok, location: @box }
-      else
-        format.html { render :edit }
-        format.json { render json: @box.errors, status: :unprocessable_entity }
+        binding.pry
+        format.html { redirect_to "/shoes/#{@box.id}", notice: 'Box was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @box }
+      # else
+        # format.html { render :edit }
+        # format.json { render json: @box.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -71,6 +72,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:name,:admin_id, :max_vertical, :max_side)
+      params.require(:box).permit(:name,:max_vertical, :max_side)
     end
 end

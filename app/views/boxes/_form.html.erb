@@ -1,27 +1,21 @@
 <%= form_with(model: box, local: true) do |form| %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :下足入れの区別しやすい名前を入れてください %>
     <%= form.text_field :name %>
   </div>
 
-
   <div class="field">
-    <%= form.label :admin_id %>
-    <%= form.number_field :admin_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :max_vertical %>
+    <%= form.label :縦何段？ %>
     <%= form.number_field :max_vertical %>
   </div>
 
   <div class="field">
-    <%= form.label :max_side %>
+    <%= form.label :横何列？ %>
     <%= form.number_field :max_side %>
   </div>
 
-  <div class="actions">
+  <div class="actions btn">
     <%= form.submit %>
   </div>
 <% end %>
