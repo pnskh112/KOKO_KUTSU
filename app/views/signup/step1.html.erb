@@ -1,0 +1,10 @@
+<%= form_for @admin, url: '/signup/step2', method: :get do |f| %>
+  email
+  <%= f.email_field :email %>
+  password
+  <%= f.password_field :encrypted_password %>
+  password_confirmation
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit 'Continue' %>
+<% end %>
