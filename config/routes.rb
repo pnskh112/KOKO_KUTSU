@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  root to: "boxes#new"
+
+  # if user_signed_in? 
+    root to: "boxes#new"
+  # end
+
   resources :boxes, except:[:update,:destroy]
 
   resources :signup do
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
     passwords:     'admins/passwords',
     registrations: 'admins/registrations'
   }
+
+  resources :shoes, only:[:index]
 
 
   # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
