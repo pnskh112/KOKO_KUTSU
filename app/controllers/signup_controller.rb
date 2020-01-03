@@ -4,7 +4,6 @@ class SignupController < ApplicationController
   end
   def step2
     # step1で入力された値をsessionに保存
-    session[:nickname] = admin_params[:nickname]
     session[:email] = admin_params[:email]
     session[:password] = admin_params[:password]
     session[:password_confirmation] = admin_params[:password_confirmation]
