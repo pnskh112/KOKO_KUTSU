@@ -3,12 +3,12 @@ class BoxesController < ApplicationController
 
   # GET /boxes
   # GET /boxes.json
-  def index
-    # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
-    # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
-
-    @boxes = Box.all
-  end
+  # def index
+  #   # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
+  #   # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
+  #   redirect_to "boxes/new"
+  #   # @boxes = Box.all
+  # end
 
   # GET /boxes/1
   # GET /boxes/1.json
@@ -30,7 +30,7 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     respond_to do |format|
       if @box.save
-        format.html { redirect_to root_path, notice: 'Box was successfully created.' }
+        format.html { redirect_to shoes_path, notice: 'Box was successfully created.' }
         format.json { render :index, status: :created, location: @box }
       else
         format.html { render :new, notice: '登録できてません' }

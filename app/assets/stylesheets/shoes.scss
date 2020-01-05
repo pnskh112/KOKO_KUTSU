@@ -8,6 +8,23 @@ html, body {
   // background-color:#cccccc;
 }
 
+// input {
+//   display: flex;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   margin: 0 auto;
+// }
+
+// .button {
+//   display: flex;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   margin: 0 auto;
+// }
 .container {
   text-align:center;
   margin: 0 auto;
@@ -32,14 +49,14 @@ html, body {
   font-size: 25px;
   font-weight: bold;
   box-shadow: gray 2px 2px;
-  background-color: #E0E0E0;
+  background-color: rgba(160, 161, 161, 0.5);
   float: left;
   padding: 10px;
-  border: 5px solid #e60;
+  border: 5px solid rgb(128, 57, 3);
   border-radius: 3px;
   line-height: 1.5px;
 
-  opacity : 0.9;
+  // opacity : 0.5;
   // transform : translate(0, 20px);
   transition : all 2s ease-in-out;
 }
@@ -58,7 +75,7 @@ html, body {
   width: 50px;
 }
 
-.btn{
+submit, .btn{
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -71,6 +88,11 @@ html, body {
 .btn:active {
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
   transform: translateY(2px);
+}
+.btn.btn-lg{
+  width:400px;
+  display: flex;
+  justify-content: center;
 }
 
 /* 裏の状態 */

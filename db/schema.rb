@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_03_145324) do
+ActiveRecord::Schema.define(version: 2020_01_04_134836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "name"
+    t.string "mail"
+    t.string "password"
+    t.string "password_confirmation"
+    t.string "remember_token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "box_users", force: :cascade do |t|
     t.bigint "box_id"
@@ -33,11 +43,11 @@ ActiveRecord::Schema.define(version: 2020_01_03_145324) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name", limit: 191, null: false
-    t.string "mail", limit: 191, null: false
-    t.string "password", limit: 191, null: false
-    t.string "password_digest", limit: 191, null: false
-    t.string "remember_token", limit: 191, null: false
+    t.string "name", limit: 191
+    t.string "mail", limit: 191
+    t.string "password", limit: 191
+    t.string "password_digest", limit: 191
+    t.string "remember_token", limit: 191
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

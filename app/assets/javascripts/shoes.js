@@ -1,23 +1,17 @@
 $(function(){
   // $(setTimeout(function(){
-  $("#go").on('click',function(e){
-    e.preventDefault();
+  // $("#go").on('click',function(e){
+    // e.preventDefault();
     console.log(this);
   // $("").on('click',function(e){
     $.ajax({
       type: 'GET',
       url: '/shoes',
-      // data: {
-      //   todo: {
-      //     content: todo
-      //   }
-      // },
-      // data: {id: 1},
       dataType: 'json'
     })
     .done(function(e){
-      var tate = 4;
-      var yoko = 6;
+      var tate = 9;
+      var yoko = 7;
       // console.log(box.max_vertical);
       panel = document.getElementById('panel');
       panel.style.width = (tate * 100) + "px";
@@ -39,8 +33,10 @@ $(function(){
   // )
   $('#on').on('click',function(){
   console.log("靴の場所を登録");
-  var width_max = 4;
-  var height_max = 6;
+  var tate = 9;
+  var yoko = 7;
+  var width_max = tate;
+  var height_max = yoko;
   var width = document.getElementById('input input-width').value;
   var height = document.getElementById('input input-height').value;
   console.log(width);
@@ -84,4 +80,4 @@ $(function(){
 // },1000));
 
 
-});
+// });

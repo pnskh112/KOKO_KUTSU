@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-  skip_before_action :require_sign_in!, only: [:new, :create]
-
+  # skip_before_action :require_sign_in!, only: [:new, :create]
   def new
     @user = User.new
   end
   def create
-    @user = User.new(user_params)
+   @user = User.new(user_params)
     if @user.save
-      redirect_to login_path
+      redirect_to shoes_path
     else
       render 'new'
     end
@@ -16,6 +15,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :mail, :password, :password_confirmation)
+    params.require(:user).permit(:name, :mail, :password, :password_confirmation, :remember_token)
   end
 end
