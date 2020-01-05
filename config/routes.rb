@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, except:[:index]
   resources :admins, except:[:index]
 
-  resources :boxes, except:[:update,:destroy]
+  resources :boxes, except:[:update,:destroy,:show]
   resources :shoes, only:[:index]
   # patch "boxes/:id", to:  "shoes"
 

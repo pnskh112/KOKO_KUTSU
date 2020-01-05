@@ -3,12 +3,14 @@ class BoxesController < ApplicationController
 
   # GET /boxes
   # GET /boxes.json
-  # def index
-  #   # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
-  #   # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
-  #   redirect_to "boxes/new"
-  #   # @boxes = Box.all
-  # end
+  def index
+    # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
+    # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
+    if true
+      redirect_to action: new
+    end
+    # @boxes = Box.all
+  end
 
   # GET /boxes/1
   # GET /boxes/1.json
@@ -65,10 +67,10 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_box
-      @box = Box.find(params[:id])
-    end
+    # # Use callbacks to share common setup or constraints between actions.
+    # def set_box
+    #   @box = Box.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
