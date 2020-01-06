@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   # delete  'logout',  to: 'sessions#destroy'
 
   root to: "boxes#new"
+  post "users/new", to: "users#new"
+  post "boxes/new", to: "boxes#new"
   resources :users, except:[:index]
   resources :admins, except:[:index]
 
   resources :boxes, except:[:update,:destroy,:show]
-  resources :shoes, only:[:index]
+  resources :shoes, only:[:new]
   # patch "boxes/:id", to:  "shoes"
 
   # resources :signup do

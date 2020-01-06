@@ -38,23 +38,48 @@ html, body {
   justify-content: center;
 }
 
+input[type="button"] {
+  height:100px;
+  width:100px;
+  // position: relative;
+  font-size: 16px;
+  // height: auto;
+  // padding: 10px;
+  // width: 400px;
+  margin: 0 auto;
+}
+input[type="submit"]:hover {
+  background-color:rgba(233, 180, 224, 0.8);
+}
+
 
 input[type="submit"] {
+  height:80px;
+  width:120px;
+  font-size: 16px;
+  margin: 0 auto;
   // position: relative;
+  // height: auto;
+  // padding: 10px;
+  // width: 400px;
+}
+
+button[type="submit"] {
   font-size: 16px;
   height: auto;
   padding: 10px;
   width: 400px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-
 .form-signin {
   max-width: 420px;
   padding: 30px 38px 66px;
   margin: 0 auto;
   background-color: #eee;
   border: 3px dotted rgba(0,0,0,0.1);  
-  }
+}
 
 .form-signin-heading {
   text-align:center;
@@ -115,52 +140,13 @@ div {
 }
 /****************************/
 
-#panel {
-  /* width: 600px;
-  height: 600px; */
-  overflow: hidden;
-  /* background-color:#000; */
-  border-radius :7px;
-  /* box-shadow: 1px 1px 3px rgba(0,0,0, .5); */
-  margin:0 auto;
-  /* cursor: move; */
-}
-
-/* #panel:hover{ */
-  /* cursor: url('img/21470.jpg'),url('img/21470.ai'); */
-  /* cursor: url("./img/aaa.png"); */
-/* } */
-
-.box {
-  width: 100px;
-  height: 100px;
-  line-height: 80px;
-  border: 1px solid silver;
-  border-radius: 10px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: bold;
-  box-shadow: gray 2px 2px;
-  /* background: white; */
-  float: left;
-  /* cursor: pointer; */
-  /* cursor: url('img/21470.jpg'),url('img/21470.ai'); */
-  /* cursor: url("./img/aaa.png"); */
-  /* color: #fff; */
-  // margin: 10px 0 10px 0;
-  padding: 15px;
-  border: 9px solid #a60;
-  border-radius: 3px;
-  /* box-shadow: 2px 2px 4px #666, 2px 2px 2px #111 inset; */
-  /* text-shadow: 0px 0px 2px #000; */
-  line-height: 1.9;
-}
-
-.box:hover {
-  background-color: pink;
-  /* cursor: url('img/21470.jpg'),url('img/21470.ai'); */
-  /* cursor: url("./img/aaa.png"); */
-}
+// #panel {
+//   overflow: hidden;
+//   border-radius :7px;
+//   /* box-shadow: 1px 1px 3px rgba(0,0,0, .5); */
+//   margin:0 auto;
+//   /* cursor: move; */
+// }
 
 #input{
   width: 50px;

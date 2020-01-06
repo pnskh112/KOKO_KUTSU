@@ -1,0 +1,9 @@
+ <%= form_with(model: box_users , local: true) do |form| %> 
+  <% for tate in 1..3 do %>
+    <% for yoko in 1..4 do %>
+      <div class="box_field">
+        <%= form.text_field :"box" %>
+      </div>
+    <% end %> 
+  <% end %> 
+<% end %>

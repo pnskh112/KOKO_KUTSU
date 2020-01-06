@@ -9,51 +9,51 @@ html, body {
   margin: 30px auto;
 }
 
-#panel {
-  /* width: 600px;
-  height: 600px; */
-  overflow: hidden;
-  /* background-color:#000; */
-  border-radius :5px;
-  /* box-shadow: 1px 1px 3px rgba(0,0,0, .5); */
-  margin:0 auto;
-  /* cursor: move; */
-}
+// #panel {
+//   /* width: 600px;
+//   height: 600px; */
+//   overflow: hidden;
+//   /* background-color:#000; */
+//   border-radius :5px;
+//   /* box-shadow: 1px 1px 3px rgba(0,0,0, .5); */
+//   margin:0 auto;
+//   /* cursor: move; */
+// }
 
 
 
-#input{
-  width: 50px;
-}
+// #input{
+//   width: 50px;
+// }
 
 
-/* 裏の状態 */
-.in {
-  /* background-image: url('/img/kutsu.jpg'); */
-  background-color:#000;
-  background-size: 60px 80px;
-}
-/* 終了時 */
-.finish {
-  opacity: 0;
-  /* cursor: default; */
-}
-/* 経過秒数 */
-#result {
-  font-size: 1.2em;
-  font-weight: bold;
-}
+// /* 裏の状態 */
+// .in {
+//   /* background-image: url('/img/kutsu.jpg'); */
+//   background-color:#000;
+//   background-size: 60px 80px;
+// }
+// /* 終了時 */
+// .finish {
+//   opacity: 0;
+//   /* cursor: default; */
+// }
+// /* 経過秒数 */
+// #result {
+//   font-size: 1.2em;
+//   font-weight: bold;
+// }
 
-.cursor {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  left: 0; 
-  z-index: 1001;
-  cursor: none;
-  pointer-events: none;
-}
+// .cursor {
+//   width: 20px;
+//   height: 20px;
+//   position: absolute;
+//   top: 0;
+//   left: 0; 
+//   z-index: 1001;
+//   cursor: none;
+//   pointer-events: none;
+// }
 
 img {
   width: 100%;
