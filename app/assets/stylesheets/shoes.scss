@@ -44,9 +44,10 @@ html, body {
   width: 100px;
   height: 100px;
 }
+
 .box{
-  width:100%;
-  height:100%;
+  height:80px;
+  width:120px;
   line-height: 80px;
   border: 1px solid silver;
   border-radius: 3px;
@@ -55,6 +56,7 @@ html, body {
   font-weight: bold;
   box-shadow: gray 2px 2px;
   background-color: rgba(160, 161, 161, 0.5);
+  color:rgba(160, 161, 161, 0.01);
   float: left;
   padding: 10px;
   border: 5px solid rgb(128, 57, 3);
@@ -64,6 +66,29 @@ html, body {
   // opacity : 0.5;
   // transform : translate(0, 20px);
   transition : all 1s ease-in-out;
+}
+.box.in_shoes{
+  height:80px;
+  width:120px;
+  line-height: 80px;
+  border: 1px solid silver;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  box-shadow: gray 2px 2px;
+  background-color: rgba(28, 36, 36, 0.5);
+  color:rgba(160, 161, 161, 0.01);
+  float: left;
+  padding: 10px;
+  border: 5px solid rgb(128, 57, 3);
+  border-radius: 3px;
+  line-height: 1.5px;
+  transition : all 1s ease-in-out;
+}
+
+.box:hover {
+  background-color:rgba(233, 180, 224, 0.8);
 }
 
 .box.scrollin{
@@ -76,6 +101,12 @@ html, body {
 }
 
 .btn{
+  // text-decoration: none;
+  // font-weight: bold;
+  // font-size: 37px;
+  // color: #799dec;
+  // text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.9), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+  // background-color:rgba(160, 161, 161, 0.1);
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -85,10 +116,24 @@ html, body {
   font-weight: bold;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
 }
+
 .btn:active {
   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
   transform: translateY(2px);
+  // top: 4px;
+  // text-shadow: none;
 }
+
+// .btn:hover {
+//   box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+//   transform: translateY(2px);
+// }
+
+#go_home{
+  text-align:center;
+  display:flex;
+}
+
 .btn.btn-lg{
   width:400px;
   display: flex;

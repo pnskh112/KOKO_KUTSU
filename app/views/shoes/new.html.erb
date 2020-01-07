@@ -1,5 +1,6 @@
-<!--
-  <div class="cursor"></div>
+
+  <!--
+    <div class="cursor"></div>
   <div class="cursor"><img src="https://www.evoworx.co.jp/wp2/wp-content/themes/evoworx2017/common/image/dog_red.png" alt=""></div>
 
   <input type="text" id="input input-height" placeholder="上から何段目?">
@@ -8,8 +9,13 @@
   <button id="on" class="btn btn-lg btn-primary">ON</button>
   <button id="search" class="btn btn-lg btn-primary">SEARCH</button>
   <button id="reset" class="btn btn-lg btn-primary">RESET</button>
+
 -->
-<button id="go_home" class="btn btn_shoes_go_home">Go Home</button>
+
+
+<h3 class="form-signin-heading">Welcome KoKoKuTsu!</h3>
+<h1 class="form-signin-heading">靴を入れる場所をクリックして、ユーザ登録してください</h1>
+<hr class="colorgraph"><br>
 
 <div id="panel">
   <% @box.each do |box| %>
@@ -19,27 +25,84 @@
 <!--      <%= yoko %> -->
 <!--  </div>          -->
     <script type="text/javascript">
+
       var panel = document.getElementById('panel');
       panel.style.width = <%= yoko * 120 %> +"px";
       panel.style.height = <%= tate * 80 %> +"px";
     </script>
-    <%= form_with(model:[:box_user,@box_user],local: true, url: new_user_path) do |form| %>
+    <% path = request.path %>
+
+    <%= form_with(model:[:box,@box], url:shoes_create_path) do |form| %>
       <% i = 0 %>
       <% n = 0 %>
       <% while i < tate do %>
         <% j = 0 %>
         <% while j < yoko do %>
-          <!--  <div class="box_field"> -->
-          <%= form.submit( :"box #{i}_#{j}", class:"box #{i}_#{j}" ) %>
+          <!-- <div class="box_field"> -->
+          <%= form.submit( :"shoe_box #{i}_#{j}_#{path}", class:"box #{i}_#{j}", id:"box_#{i}_#{j}" ) %>
           <% n = n + 1 %>
           <!--  </div> -->
           <%j = j + 1%>
         <% end %>
-        <%i = i + 1%> 
-      <% end %> 
+        <%i = i + 1%>
+      <% end %>
   <% end %>
 <% end %>
 
+
+
+<script>
+
+<!--//クリックされたタイミングでフォームを変更する
+// window.onload = (function(){
+  // var box = document.getElementsByClassName("box")
+  // for(i=0;i<box.length;i++){
+    //   console.log(box[i].getAttribute);
+    //   box[i].addEventListener('click', function(){
+      //  console.log("反転！");
+      //   console.log(box[i]);
+      // var shoe_box = box[i].getAttribute("id");
+      // console.log(shoe_box);
+      //     }
+      //   )
+      // }
+      // });
+
+      //   window.onload = (function(){
+        //     var box = document.getElementsByClassName("box")
+        //     for(i=0;i<box.length;i++){
+          //         console.log(box[i].getAttribute);
+          //         box[i].addEventListener('click', function(){
+            //           console.log(box[i]);
+            //         var shoe_box = box[i].getAttribute("id");
+            //         console.log(shoe_box);
+            // }
+            // )
+            // }
+            // });
+            -->
+
+            window.onload = (function(){
+              var url = location.href
+              if (url.indexOf("/new.")>=0){
+                var str1=url.substring(url.indexOf("/new.")+5,url.length)
+              }
+              console.log(str1)
+              var <%= @test_id %> = str1;
+              var box = document.getElementsByClassName("box")
+              for(i=0;i<box.length;i++){
+                var shoe_box = box[i].getAttribute("id");
+                console.log(shoe_box);
+                box[i].addEventListener('click', function(){
+                    var user_vertical = shoe_box.slice(4,5);
+                    var user_side = shoe_box.slice(6,7);
+                }
+              )
+            }
+            });
+
+</script>
+<%= @user_vertical %>
 <!-- <div class="box empty"></div> -->
 </div>
 <div id="img_unit">

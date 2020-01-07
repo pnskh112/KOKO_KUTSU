@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(version: 2020_01_04_134836) do
   end
 
   create_table "box_users", force: :cascade do |t|
-    t.bigint "box_id"
+    t.integer "box_id"
+    t.integer "user_id"
+    t.string "user_name"
     t.integer "vertical"
     t.integer "side"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["box_id"], name: "index_box_users_on_box_id"
   end
 
   create_table "boxes", force: :cascade do |t|
@@ -52,5 +53,4 @@ ActiveRecord::Schema.define(version: 2020_01_04_134836) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "box_users", "boxes"
 end

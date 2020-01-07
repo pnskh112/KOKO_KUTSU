@@ -32,8 +32,14 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     respond_to do |format|
       if @box.save
-        format.html { redirect_to shoes_path, notice: 'Box was successfully created.' }
-        format.json { render :index, status: :created, location: @box }
+        format.html
+        format.json
+        # link_to "", new_shoe_path(@box.id)
+        # redirect_to new_shoe_path(@box.id)
+        redirect_to new_shoe_path(@box.id)
+
+        # format.html { redirect_to shoes_path, notice: 'Box was successfully created.' }
+        # format.json { render :index, status: :created, location: @box }
       else
         format.html { render :new, notice: '登録できてません' }
         format.json { render json: @box.errors, status: :unprocessable_entity }
@@ -46,7 +52,6 @@ end
   def update
     respond_to do |format|
       if @box.update(box_params)
-        binding.pry
         format.html { redirect_to "/shoes/#{@box.id}", notice: 'Box was successfully updated.' }
         # format.json { render :show, status: :ok, location: @box }
       # else

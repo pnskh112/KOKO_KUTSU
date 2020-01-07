@@ -1,5 +1,5 @@
 /*ここから*/
-$(document).ready((function(){
+$(document).ready(function(){
 url = location.href.slice( -10 );
 console.log(url);
 if(url !== "/shoes/new") {
@@ -90,9 +90,55 @@ if(url !== "/shoes/new") {
 //   }
 //   });
 // }
-}}));
+}});
 
-// },1000));
+// フォームのinputボタンが押された時に、その要素のクラス名もしくはid名を取得して、
+// そこから正規表現でたて何段、よこ何列 の箱に靴を入れたかを取得
+//  まずはちゃんと要素を取得できているか、console.logで確認→ok
 
+// $(document).ready(function(){
+window.onload = (function(){
+  var box = document.getElementsByClassName("box")
+  for(i=0;i<box.length;i++){
+    var shoe_box = box[i].getAttribute("id");
+    console.log(shoe_box);
+    box[i].addEventListener('click', function(){
 
-// });
+        console.log("反転！");
+        
+        console.log("たて:"+shoe_box.slice(4,5));
+        console.log("よこ:"+shoe_box.slice(6,7));
+        var user_vertical = shoe_box.slice(4,5);
+        var user_side = shoe_box.slice(6,7);
+
+        // $("#shoe_box").remove();
+        
+        
+      //var shoe_box = box[i].getAttribute("id");
+      //console.log(shoe_box);
+    }
+  )
+}
+});
+
+  // window.onload = (function(){
+  //   var box = document.getElementsByClassName("box")
+  //   for(i=0;i<box.length;i++){
+  //       console.log(box[i].getAttribute);
+  //       box[i].addEventListener('click', function(){
+  //         console.log(box[i]);
+  //       var shoe_box = box[i].getAttribute("id");
+  //       console.log(shoe_box);
+  //     }
+  //   )
+  // }
+  // });
+
+// $(document).ready(function(){
+//   url = location.href.slice( -10 );
+//   console.log(url);
+//   if(url !== "/shoes/new") {
+//     console.log("func_sorting呼びません！")
+//   }else{
+//     console.log("q");
+//   }});

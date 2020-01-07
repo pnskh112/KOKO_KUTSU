@@ -6,12 +6,17 @@ Rails.application.routes.draw do
 
   root to: "boxes#new"
   post "users/new", to: "users#new"
+  post "users/create", to: "users#create"
+  post "shoes/create", to: "shoes#create"
   post "boxes/new", to: "boxes#new"
+  post "shoes/new", to: "shoes#new"
+  post "users/:id", to: "users#show"
+
   resources :users, except:[:index]
   resources :admins, except:[:index]
 
   resources :boxes, except:[:update,:destroy,:show]
-  resources :shoes, only:[:new]
+  resources :shoes, only:[:show,:new]
   # patch "boxes/:id", to:  "shoes"
 
   # resources :signup do
