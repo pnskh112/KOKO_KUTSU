@@ -1,27 +1,30 @@
 Rails.application.routes.draw do
+  # # ログイン / ログアウト
+  # get     'login',   to: 'sessions#new'
+  # post    'login',   to: 'sessions#create'
+  # delete  'logout',  to: 'sessions#destroy'
 
-  devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
-  }
   root to: "boxes#new"
-  resources :boxes, except:[:update,:destroy]
+  post "users/new", to: "users#new"
+  post "users/create", to: "users#create"
+  post "shoes/create", to: "shoes#create"
+  post "boxes/new", to: "boxes#new"
+  post "shoes/new", to: "shoes#new"
+  post "users/:id", to: "users#show"
 
-  resources :signup do
-    collection do
-      get 'step1'
-      get 'step2'
-      get 'done'
-    end
-  end
+  resources :users, except:[:index]
+  resources :admins, except:[:index]
 
-  devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
-    registrations: 'admins/registrations'
-  }
+  resources :boxes, except:[:update,:destroy,:show]
+  resources :shoes, only:[:show,:new]
+  # patch "boxes/:id", to:  "shoes"
 
+  # resources :signup do
+  #   collection do
+  #     get 'step1'
+  #     get 'step2'
+  #     get 'done'
+  #   end
+  # end
 
-  # mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end

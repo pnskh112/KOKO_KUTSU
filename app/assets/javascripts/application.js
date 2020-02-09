@@ -15,6 +15,6 @@
 //= require turbolinks
 //= require jquery3
 //= require bootstrap-sprockets
-//= require boxes
+//= require shoes
 //= require_tree .
 
