@@ -1,7 +1,11 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  has_many :boxes, through: :box_users
+  # has_secure_password validations: true
+  # validates :mail, presence: true, uniqueness: true
+  # def self.new_remember_token
+  #   SecureRandom.urlsafe_base64
+  # end
+  has_many :box_users
+  # def self.encrypt(token)
+  #   Digest::SHA256.hexdigest(token.to_s)
+  # end
 end

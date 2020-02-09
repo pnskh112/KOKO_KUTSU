@@ -1,0 +1,28 @@
+<%= form_with(model:[:admin,@admin], url: admins_path) do |form| %>
+  <div class="wrapper">
+    <!-- <form action="" method="post" name="Login_Form" class="form-signin">       -->
+
+    <h1 class="form-signin-heading">管理者登録</h1>
+    <hr class="colorgraph"><br>
+
+                      <div class="field">
+                        <%= form.label :"名前" %>
+                        <%= form.text_field :name %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :"メールアドレス" %>
+                        <%= form.text_field :mail %>
+                      </div>
+
+                      <div class="field">
+                        <%= form.label :"パスワード" %>
+                        <%= form.text_field :password %>
+                      </div>
+        
+                      <div class="field buton">
+                      <%= form.label :" " %>
+                      <%= form.button '管理者登録' %>
+                    </div>
+
+<% end %>
