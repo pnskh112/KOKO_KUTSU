@@ -64,9 +64,9 @@ gem 'slack-api'
 gem 'slack-notifier'
 gem 'pry-rails'
 gem 'jquery-rails'
-gem 'devise'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'haml-rails'
 gem 'erb2haml'
+
 gem "bootstrap-sass", ">= 3.4.1"

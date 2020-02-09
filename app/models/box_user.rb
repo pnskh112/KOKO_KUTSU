@@ -1,4 +1,3 @@
-class BoxUser < ApplicationRecord
-  has_many :boxes
-  has_many :users
+class Box_user < ApplicationRecord
+   belongs_to :box
 end

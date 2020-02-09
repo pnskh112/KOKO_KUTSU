@@ -1,0 +1,18 @@
+<%= form_with(model:[:box_user,@box_user], locasl: true,url: "/shoes/new") do |form| %>
+  <div class="wrapper">
+    <!-- <form action="" method="get" name="Login_Form" class="form-signin">       -->
+
+    <h1 class="form-signin-heading">ユーザ入力</h1>
+    <hr class="colorgraph"><br>
+
+    <div class="field">
+    <%= form.label :"名前" %>
+    <%= form.text_field :name %>
+  </div>
+
+                      <div class="field buton">
+                        <%= form.label :" " %>
+                        <%= form.button 'SEARCH!' %>
+                      </div>
+
+<% end %>

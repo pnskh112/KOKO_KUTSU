@@ -4,10 +4,12 @@ class BoxesController < ApplicationController
   # GET /boxes
   # GET /boxes.json
   def index
-    Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
-    Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
-
-    @boxes = Box.all
+    # Slack.channels_create(token: config.token, name: 'slack_rails_test5', validate: 'true')
+    # Slack.chat_postMessage(text: 'hello!', username: 'slack_test_bot', channel: "#slack_rails_test5")
+    if true
+      redirect_to action: new
+    end
+    # @boxes = Box.all
   end
 
   # GET /boxes/1
@@ -30,8 +32,14 @@ class BoxesController < ApplicationController
     @box = Box.new(box_params)
     respond_to do |format|
       if @box.save
-        format.html { redirect_to root_path, notice: 'Box was successfully created.' }
-        format.json { render :index, status: :created, location: @box }
+        format.html
+        format.json
+        # link_to "", new_shoe_path(@box.id)
+        # redirect_to new_shoe_path(@box.id)
+        redirect_to new_shoe_path(@box.id)
+
+        # format.html { redirect_to shoes_path, notice: 'Box was successfully created.' }
+        # format.json { render :index, status: :created, location: @box }
       else
         format.html { render :new, notice: '登録できてません' }
         format.json { render json: @box.errors, status: :unprocessable_entity }
@@ -44,11 +52,11 @@ end
   def update
     respond_to do |format|
       if @box.update(box_params)
-        format.html { redirect_to @box, notice: 'Box was successfully updated.' }
-        format.json { render :show, status: :ok, location: @box }
-      else
-        format.html { render :edit }
-        format.json { render json: @box.errors, status: :unprocessable_entity }
+        format.html { redirect_to "/shoes/#{@box.id}", notice: 'Box was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @box }
+      # else
+        # format.html { render :edit }
+        # format.json { render json: @box.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,13 +72,13 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_box
-      @box = Box.find(params[:id])
-    end
+    # # Use callbacks to share common setup or constraints between actions.
+    # def set_box
+    #   @box = Box.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def box_params
-      params.require(:box).permit(:name,:admin_id, :max_vertical, :max_side)
+      params.require(:box).permit(:name,:max_vertical, :max_side)
     end
 end
