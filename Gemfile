@@ -68,5 +68,5 @@ gem 'rails_admin'
 gem 'cancancan'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'bcrypt', '~> 3.1.11'
+
+gem "bootstrap-sass", ">= 3.4.1"
