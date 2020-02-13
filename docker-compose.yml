@@ -10,23 +10,30 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   app:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 80 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+
     volumes:
-      - .:/myapp
+      - .:/app
     # ports:
-    #   - "3000:3000"
+      # - "3000:3000"
     depends_on:
       - db
 
   web:
-    build: nginx
+    build: .
+    # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    # これを追記してみたよ
+    # command: bash -c "rm -f /etc/nginx/conf.d/default.conf && cron -f"
+    # 
     ports:
       - "80:80"
     volumes:
-      - ./nginx/log:/var/log/nginx
+      - ./log:/var/log/nginx
     volumes:
-      - app
+      - web
     depends_on:
       - app
-    tty: true
-    stdin_open: true
+
+  # 調査などの際はコンテナ立てっぱなしにしておく
+  # tty: true
+  # stdin_open: true
