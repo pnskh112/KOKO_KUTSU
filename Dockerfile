@@ -1,25 +1,22 @@
-FROM ruby:2.5
+FROM ruby:2.3.1
+RUN apt-get update -qq && \
+    apt-get install -y build-essential libpq-dev nodejs && \
+    apt-get install -y nginx
 
-# 必要なパッケージをインストール
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get install -y nodejs
+# Nginx
+ADD nginx.conf /etc/nginx/sites-available/app.conf
+RUN rm -f /etc/nginx/sites-enabled/default && \
+    ln -s /etc/nginx/sites-available/app.conf /etc/nginx/sites-enabled/app.conf
 
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-
-RUN mkdir /myapp
-
-WORKDIR /myapp
-
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+# Rails App
+RUN mkdir /app
+WORKDIR /app
+ADD Gemfile /app/Gemfile
+ADD Gemfile.lock /app/Gemfile.lock
 RUN bundle install
-COPY . /myapp
+ADD . /app
+# RUN mkdir /app/tmp/sockets
 
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
-
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# Start Server
+CMD bundle exec puma -d && \
+    /usr/sbin/nginx -g 'daemon off;' -c /etc/nginx/nginx.conf
